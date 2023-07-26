@@ -1,0 +1,87 @@
+<html>
+
+<head>
+
+<title> Carrier Guidance</title>
+<style>	
+	* {font-size: 50px;}
+	body{background-image: url("IM1.jpg");
+	background-repeat: no-repeat;
+	background-size: 100% 100%;}
+</style>
+<script>
+
+	function show()
+	{
+		event.preventDefault();
+		let name = document.getElementById("name");
+		let Job = document.getElementById("Job");
+		let Ms = document.getElementById("Ms");
+		let MBA = document.getElementById("MBA");
+		let ans = document.getElementById("ans");
+		
+
+		if(name.value== "")
+		{
+
+			alert("Name is empty");
+			ans.innerHTML="";
+			name.focus();
+			return;
+		}
+		else if(name.value.trim()== "")
+		{
+			alert("Space not allowed");
+			ans.innerHTML="";
+			name.value="";
+			name.focus();
+			return;
+		}
+		else if (!name.value.match(/^[A-Za-z ]+$/))
+		{
+			alert("Special character not  allowed");
+			ans.innerHTML="";
+			name.value="";
+			name.focus();
+			return;
+		}
+		let choice =""
+		if(Job.checked)			choice = "Job";
+		else if (Ms.checked)	choice = "Ms";
+		else 					choice = "MBA";
+		
+		let msg = "name:  " +name.value   + "  choice: " +choice;
+		ans.innerHTML = msg;
+	}
+
+</script>
+
+
+</head>
+
+<body>
+<center>
+	<h1> What next..?</h1>
+	<form onsubmit="show()">	
+		<input type = "text" placeholder= "Enter Your Name" id = "name"/>
+		<br><br>
+		<input type ="radio" name ="c" id = "Job" checked=true/>Job
+		<input type ="radio" name ="c" id = "Ms"/>Ms
+		<input type ="radio" name ="c" id = "MBA"/>MBA	
+		<br><br>
+		<input type ="submit"/>	
+	</form>
+	<h1 id="ans"/>
+</center>
+
+
+
+</body>
+
+
+
+
+
+
+
+</html>
